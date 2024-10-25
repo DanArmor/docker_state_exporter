@@ -13,6 +13,10 @@ import (
 	"syscall"
 	"time"
 
+	// This is necessary to avoid ambiguous import error
+	// see https://github.com/open-telemetry/opentelemetry-collector/issues/10476
+	_ "google.golang.org/genproto/googleapis/type/date"
+
 	"github.com/docker/docker/api/types"
 	tcontainer "github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/client"

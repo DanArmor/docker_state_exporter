@@ -2,7 +2,7 @@ FROM golang:alpine AS builder
 RUN apk update && apk add git && apk add ca-certificates
 WORKDIR /exporter
 COPY . .
-RUN go mod download
+RUN go mod tidy
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags="-w -s" -o /go/bin/docker_state_exporter
 
 FROM alpine:3
