@@ -18,7 +18,7 @@ The `docker_state_exporter` listens on HTTP port 8080 by default.
 For Docker run.
 
 ```bash
-sudo docker run -d \
+docker run -d \
   -v "/var/run/docker.sock:/var/run/docker.sock:ro" \
   -p 127.0.0.1:8080:8080 \
   danarmor/docker_state_exporter \
@@ -75,13 +75,13 @@ I have not tested it in any other environment.
 ```bash
 git clone https://github.com/DanArmor/docker_state_exporter
 cd docker_state_exporter
-sudo docker build -t docker_state_exporter_test .
+docker build -t docker_state_exporter_test .
 ```
 
 ### Run
 
 ```bash
-sudo docker run -d \
+docker run -d \
   -v "/var/run/docker.sock:/var/run/docker.sock:ro" \
   -p 127.0.0.1:8080:8080 \
   docker_state_exporter_test \
