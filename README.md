@@ -90,4 +90,4 @@ docker run -d \
 
 ### Why this fork created:
 
-[Original exporter](https://github.com/karugaru/docker_state_exporter) doesn't provide exit code metric, this fork does.
+[Original exporter](https://github.com/karugaru/docker_state_exporter) doesn't provide exit code metric, this fork does. Also some improvements here and there.

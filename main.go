@@ -145,7 +145,12 @@ func (c *dockerHealthCollector) collectContainer() {
 
 	for _, container := range containers {
 		info, err := c.containerClient.ContainerInspect(context.Background(), container.ID)
-		errCheck(err)
+		if err != nil {
+			if !strings.Contains(err.Error(), "No such container") {
+				errCheck(err)
+			}
+			continue
+		}
 		c.containerInfoCache = append(c.containerInfoCache, info)
 
 		if info.Config == nil {
